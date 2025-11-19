@@ -8,8 +8,11 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Clientes pospago",
-  description: "App para gestionar clientes de planes pospago.",
+  title: {
+    template: "%s - Planes pospago",
+    default: "Planes pospago",
+  },
+  description: "App para gestionar planes pospago.",
 };
 
 export default function RootLayout({
@@ -18,8 +21,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
-      <body className={`${geistSans.variable} antialiased`}>{children}</body>
+    <html lang="es" suppressHydrationWarning>
+      <body className={`${geistSans.variable} antialiased`}>
+        {/* <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        ></ThemeProvider> */}
+        {children}
+        {/* <Toaster position="top-center" closeButton /> */}
+      </body>
     </html>
   );
 }
