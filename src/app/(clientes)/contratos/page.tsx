@@ -1,20 +1,20 @@
 import { AppHeader } from "@/components/app-header";
 import { DataTable } from "@/components/data-table";
 import { PageWrapper } from "@/components/page-wrapper";
-import { getClients } from "@/fetch-data/clientes";
 import { PageProps } from "@/types";
 import { columns } from "./columns";
+import { getContracts } from "@/fetch-data/contratos";
 
 export const metadata = {
-  title: "Clientes",
+  title: "Contratos",
 };
 
 export default async function Page({ searchParams }: PageProps) {
-  const { data } = await getClients(await searchParams);
+  const { data } = await getContracts(await searchParams);
 
   return (
     <>
-      <AppHeader title="Clientes" hideBackButton showActions />
+      <AppHeader title="Contratos" hideBackButton showActions />
       <PageWrapper>
         <DataTable columns={columns} data={data} />
       </PageWrapper>

@@ -5,24 +5,24 @@ import {
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
-  SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import { ChartColumn, Home, Scroll, User } from "lucide-react";
+import { ChartColumn, CircleQuestionMark, Scroll, Users } from "lucide-react";
+import { ThemeToggle } from "./theme-toggle";
 import Link from "next/link";
 
 const items = [
   {
-    title: "Inicio",
+    title: "Dashboard",
     url: "/",
-    icon: Home,
+    icon: ChartColumn,
   },
   {
     title: "Clientes",
     url: "/clientes",
-    icon: User,
+    icon: Users,
   },
   {
     title: "Contratos",
@@ -30,9 +30,9 @@ const items = [
     icon: Scroll,
   },
   {
-    title: "Dashboard",
-    url: "/dashboard",
-    icon: ChartColumn,
+    title: "Documentación",
+    url: "/documentacion",
+    icon: CircleQuestionMark,
   },
 ];
 
@@ -47,10 +47,10 @@ export function AppSidebar() {
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
-                    <a href={item.url}>
+                    <Link href={item.url}>
                       <item.icon />
                       <span>{item.title}</span>
-                    </a>
+                    </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
@@ -58,6 +58,9 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
+      <SidebarFooter>
+        <ThemeToggle />
+      </SidebarFooter>
     </Sidebar>
   );
 }
