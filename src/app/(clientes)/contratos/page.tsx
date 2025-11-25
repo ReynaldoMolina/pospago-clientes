@@ -1,5 +1,5 @@
 import { AppHeader } from "@/components/app-header";
-import { DataTable } from "@/components/data-table";
+import { DataTable } from "@/components/table/data-table";
 import { PageWrapper } from "@/components/page-wrapper";
 import { PageProps } from "@/types";
 import { columns } from "./columns";

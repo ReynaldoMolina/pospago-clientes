@@ -58,12 +58,13 @@ export function BadgeCell<TData, TValue>({
   const value = getValue();
   const formattedValue = String(value);
 
+  if (!value) return;
+
   return (
     <Badge
       variant="secondary"
       className={cn(!value && "text-muted-foreground")}
     >
-      <Shapes />
       <span>{formattedValue}</span>
     </Badge>
   );

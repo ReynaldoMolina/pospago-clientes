@@ -37,8 +37,17 @@ export function DataTable<TData, TValue>({
         {table.getHeaderGroups().map((headerGroup) => (
           <TableRow key={headerGroup.id}>
             {headerGroup.headers.map((header) => {
+              const size = header.getSize();
+              const maxSize = header.column.columnDef.maxSize;
+
               return (
-                <TableHead key={header.id}>
+                <TableHead
+                  key={header.id}
+                  style={{
+                    width: size !== 150 ? header.getSize() : undefined,
+                    maxWidth: maxSize ? maxSize : undefined,
+                  }}
+                >
                   {header.isPlaceholder
                     ? null
                     : flexRender(
@@ -58,11 +67,23 @@ export function DataTable<TData, TValue>({
               key={row.id}
               data-state={row.getIsSelected() && "selected"}
             >
-              {row.getVisibleCells().map((cell) => (
-                <TableCell key={cell.id}>
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </TableCell>
-              ))}
+              {row.getVisibleCells().map((cell) => {
+                const size = cell.column.getSize();
+                const maxSize = cell.column.columnDef.maxSize;
+
+                return (
+                  <TableCell
+                    key={cell.id}
+                    style={{
+                      width: size !== 150 ? cell.column.getSize() : undefined,
+                      maxWidth: maxSize ? maxSize : undefined,
+                    }}
+                    className="border-r last-of-type:border-r-0"
+                  >
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </TableCell>
+                );
+              })}
             </TableRow>
           ))
         ) : (

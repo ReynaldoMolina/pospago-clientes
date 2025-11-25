@@ -33,7 +33,7 @@ export function AppHeader({
       />
 
       {!hideBackButton && (
-        <Button variant="ghost" size="icon" onClick={() => router.back()}>
+        <Button variant="ghost" size="icon-sm" onClick={() => router.back()}>
           <ArrowLeft className="size-4.5" />
         </Button>
       )}

@@ -1,6 +1,6 @@
 "use client";
 
-import { StatusBadgeCell } from "@/components/table/badge-cell";
+import { BadgeCell, StatusBadgeCell } from "@/components/table/badge-cell";
 import { DateCell } from "@/components/table/date-cell";
 import { EditCell } from "@/components/table/edit-cell";
 import { ClientTable } from "@/types";
@@ -11,28 +11,35 @@ export const columns: ColumnDef<ClientTable>[] = [
     id: "actions",
     header: "Edit",
     cell: ({ row }) => <EditCell href={`/clientes/${row.original.id}`} />,
-  },
-  {
-    accessorKey: "telefono",
-    header: "Teléfono",
-  },
-  {
-    accessorKey: "estado",
-    header: "Estado",
-    cell: StatusBadgeCell,
+    size: 40,
   },
   {
     accessorKey: "fecha",
     header: "Fecha",
     cell: DateCell,
+    size: 100,
+  },
+  {
+    accessorKey: "estado",
+    header: "Estado",
+    cell: StatusBadgeCell,
+    size: 100,
+  },
+  {
+    accessorKey: "telefono",
+    header: "Teléfono",
+    size: 80,
   },
   {
     accessorKey: "nombre_cliente",
     header: "Nombre",
+    maxSize: 200,
   },
   {
     accessorKey: "municipio",
     header: "Municipio",
+    cell: BadgeCell,
+    size: 80,
   },
   {
     accessorKey: "notas",

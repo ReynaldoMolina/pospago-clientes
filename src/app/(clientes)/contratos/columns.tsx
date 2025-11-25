@@ -11,19 +11,23 @@ export const columns: ColumnDef<ContractTable>[] = [
     id: "actions",
     header: "Edit",
     cell: ({ row }) => <EditCell href={`/contratos/${row.original.id}`} />,
-  },
-  {
-    accessorKey: "numero_contrato",
-    header: "Contrato",
+    size: 40,
   },
   {
     accessorKey: "fecha",
     header: "Fecha",
     cell: DateCell,
+    size: 100,
+  },
+  {
+    accessorKey: "numero_contrato",
+    header: "Contrato",
+    size: 80,
   },
   {
     accessorKey: "telefono",
     header: "Teléfono",
+    size: 80,
   },
   {
     accessorKey: "nombre_cliente",
@@ -32,15 +36,18 @@ export const columns: ColumnDef<ContractTable>[] = [
   {
     accessorKey: "plan_aportado",
     header: "Plan",
-  },
-  {
-    accessorKey: "vence",
-    header: "Vence el",
-    cell: DateStatusCell,
+    size: 80,
   },
   {
     accessorKey: "tipo_contrato",
     header: "Tipo",
     cell: BadgeCell,
+    size: 100,
+  },
+  {
+    accessorKey: "vence",
+    header: "Vence el",
+    cell: DateStatusCell,
+    size: 100,
   },
 ];
