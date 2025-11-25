@@ -47,6 +47,7 @@ export function DataTable<TData, TValue>({
                     width: size !== 150 ? header.getSize() : undefined,
                     maxWidth: maxSize ? maxSize : undefined,
                   }}
+                  className="text-xs font-semibold"
                 >
                   {header.isPlaceholder
                     ? null

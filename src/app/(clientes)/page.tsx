@@ -11,8 +11,6 @@ export const metadata = {
 export default async function Page({ searchParams }: PageProps) {
   const data = await getDashboardData(await searchParams);
 
-  console.log(data);
-
   return (
     <>
       <AppHeader title="Dashboard" hideBackButton />

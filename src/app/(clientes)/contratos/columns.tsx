@@ -8,8 +8,8 @@ import { ColumnDef } from "@tanstack/react-table";
 
 export const columns: ColumnDef<ContractTable>[] = [
   {
-    id: "actions",
-    header: "Edit",
+    id: "edit",
+    header: "Editar",
     cell: ({ row }) => <EditCell href={`/contratos/${row.original.id}`} />,
     size: 40,
   },
@@ -36,7 +36,7 @@ export const columns: ColumnDef<ContractTable>[] = [
   {
     accessorKey: "plan_aportado",
     header: "Plan",
-    size: 80,
+    size: 60,
   },
   {
     accessorKey: "tipo_contrato",

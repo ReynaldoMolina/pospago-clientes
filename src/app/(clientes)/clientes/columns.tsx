@@ -8,8 +8,8 @@ import { ColumnDef } from "@tanstack/react-table";
 
 export const columns: ColumnDef<ClientTable>[] = [
   {
-    id: "actions",
-    header: "Edit",
+    id: "edit",
+    header: "Editar",
     cell: ({ row }) => <EditCell href={`/clientes/${row.original.id}`} />,
     size: 40,
   },

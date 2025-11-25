@@ -1,4 +1,4 @@
-import { formatDate, formatDateShort } from "@/lib/formatters";
+import { formatDate } from "@/lib/formatters";
 import { CellContext } from "@tanstack/react-table";
 import { getDateStatus } from "@/lib/get-date-status";
 import { Badge } from "../ui/badge";
@@ -30,7 +30,7 @@ export function DateStatusCell<TData, TValue>({
   const date = getValue();
   const dateString = date ? String(date) : "";
   const dateStatus = getDateStatus(dateString);
-  const formattedDate = formatDateShort(dateString);
+  const formattedDate = formatDate(dateString);
 
   return (
     <Badge variant="secondary" className={dateStatusConfig[dateStatus].bg}>
