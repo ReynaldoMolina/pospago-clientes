@@ -1,9 +1,9 @@
 import { CellContext } from "@tanstack/react-table";
 import { Badge } from "../ui/badge";
 import { cn } from "@/lib/utils";
-import { Check, Clock, PhoneMissed, Shapes, X } from "lucide-react";
+import { Check, Clock, PhoneMissed, X } from "lucide-react";
 
-type StatusKey = "Sin respuesta" | "En espera" | "Rechazado" | "Interesado";
+type StatusKey = "Sin respuesta" | "En espera" | "Rechazado" | "Prospecto";
 
 const badgeConfig = {
   "Sin respuesta": {
@@ -18,7 +18,7 @@ const badgeConfig = {
     variant: "destructive" as const,
     icon: <X />,
   },
-  Interesado: {
+  Prospecto: {
     variant: "secondary" as const,
     icon: <Check />,
   },
@@ -43,7 +43,7 @@ export function StatusBadgeCell<TData, TValue>({
       className={cn(
         "inline-flex items-center gap-1 whitespace-nowrap font-normal cursor-default",
         !value && "text-muted-foreground",
-        formattedValue === "Interesado" && "bg-green-200 dark:bg-green-700"
+        formattedValue === "Prospecto" && "bg-green-200 dark:bg-green-700"
       )}
     >
       {config.icon}

@@ -144,7 +144,10 @@ export default async function Page() {
                 <TableTd>Cliente existente (más de 7 meses)</TableTd>
               </TableTr>
               <TableTr>
-                <TableTd>Cliente masivo (más de 1 año)</TableTd>
+                <TableTd>
+                  Cliente masivo (más de 1 año, puede aplicar a financiamientos
+                  de equipo)
+                </TableTd>
               </TableTr>
               <TableTr>
                 <TableTd>Cliente excelente (pronto pago)</TableTd>
@@ -259,7 +262,7 @@ export default async function Page() {
               Procurar que las ventas sean igual o mayores a $20 (plan de
               C$700).
             </li>
-            <li>20 ventas al mes (6 a 10 que migren a Claro).</li>
+            <li>Mínimo 20 ventas al mes (6 a 10 que migren a Claro).</li>
           </TypographyList>
 
           <TypographyH3>Requisitos ITX (Interconexión)</TypographyH3>

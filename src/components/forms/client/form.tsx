@@ -24,14 +24,42 @@ export function ClientForm({ form }: ClientForm) {
   return (
     <FieldGroup>
       <FieldSet>
-        <FieldLegend>Información</FieldLegend>
-        <FieldDescription>
-          Ingresa los datos básicos del cliente
-        </FieldDescription>
+        <FieldLegend>Seguimiento</FieldLegend>
+        <FieldDescription>Ingresa los datos de seguimiento</FieldDescription>
         <FieldSetGroup allowRow>
           <FormInput control={form.control} name="telefono" label="Teléfono" />
           <FormDatePicker control={form.control} name="fecha" label="Fecha" />
         </FieldSetGroup>
+        <FormSelect
+          control={form.control}
+          name="estado"
+          label="Estado"
+          options={[
+            {
+              value: "Sin respuesta",
+              label: "Sin respuesta",
+            },
+            {
+              value: "Rechazado",
+              label: "Rechazado",
+            },
+            {
+              value: "Prospecto",
+              label: "Prospecto",
+            },
+            {
+              value: "En espera",
+              label: "En espera",
+            },
+          ]}
+        />
+      </FieldSet>
+      <FieldSeparator />
+      <FieldSet>
+        <FieldLegend variant="label">Información</FieldLegend>
+        <FieldDescription>
+          Ingresa los datos básicos del cliente
+        </FieldDescription>
         <FormInput control={form.control} name="nombre" label="Nombre" />
         <FormInput control={form.control} name="apellido" label="Apellido" />
         <FieldSetGroup>
@@ -55,38 +83,6 @@ export function ClientForm({ form }: ClientForm) {
             ]}
           />
         </FieldSetGroup>
-      </FieldSet>
-      <FieldSeparator />
-      <FieldSet>
-        <FieldLegend>Seguimiento</FieldLegend>
-        <FieldDescription>Ingresa los datos de seguimiento</FieldDescription>
-        <FieldSetGroup>
-          <FormSelect
-            control={form.control}
-            name="estado"
-            label="Estado"
-            options={[
-              {
-                value: "Sin respuesta",
-                label: "Sin respuesta",
-              },
-              {
-                value: "Rechazado",
-                label: "Rechazado",
-              },
-              {
-                value: "Interesado",
-                label: "Interesado",
-              },
-              {
-                value: "En espera",
-                label: "En espera",
-              },
-            ]}
-          />
-        </FieldSetGroup>
-      </FieldSet>
-      <FieldSet>
         <FormTextArea control={form.control} name="notas" label="Notas" />
       </FieldSet>
     </FieldGroup>
