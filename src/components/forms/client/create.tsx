@@ -23,8 +23,6 @@ export function CreateClientForm() {
       telefono: "",
       fecha: currentDate,
       nombre: "",
-      apellido: "",
-      municipio: "",
       estado: "",
       notas: "",
     },

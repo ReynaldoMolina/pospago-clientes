@@ -33,8 +33,7 @@ export interface ServerStatus {
 export interface ClientTable {
   id: number;
   telefono: string;
-  nombre_cliente: string | null;
-  municipio: string | null;
+  nombre: string | null;
   estado: string;
 }
 
@@ -43,8 +42,6 @@ export interface ClientById {
   telefono: string;
   fecha: string;
   nombre: string | null;
-  apellido: string | null;
-  municipio: string | null;
   estado: string;
   notas: string | null;
 }
@@ -52,7 +49,7 @@ export interface ClientById {
 export interface ContractTable {
   id: number;
   fecha: string;
-  nombre_cliente: string;
+  nombre: string | null;
   numero_contrato: string;
   telefono: string;
   vence: string;

@@ -5,7 +5,6 @@ import {
   FieldDescription,
   FieldGroup,
   FieldLegend,
-  FieldSeparator,
   FieldSet,
 } from "@/components/ui/field";
 import { UseFormReturn } from "react-hook-form";
@@ -30,6 +29,7 @@ export function ClientForm({ form }: ClientForm) {
           <FormInput control={form.control} name="telefono" label="Teléfono" />
           <FormDatePicker control={form.control} name="fecha" label="Fecha" />
         </FieldSetGroup>
+        <FormInput control={form.control} name="nombre" label="Nombre" />
         <FormSelect
           control={form.control}
           name="estado"
@@ -47,44 +47,10 @@ export function ClientForm({ form }: ClientForm) {
               value: "Prospecto",
               label: "Prospecto",
             },
-            {
-              value: "En espera",
-              label: "En espera",
-            },
           ]}
         />
       </FieldSet>
-      <FieldSeparator />
-      <FieldSet>
-        <FieldLegend variant="label">Información</FieldLegend>
-        <FieldDescription>
-          Ingresa los datos básicos del cliente
-        </FieldDescription>
-        <FormInput control={form.control} name="nombre" label="Nombre" />
-        <FormInput control={form.control} name="apellido" label="Apellido" />
-        <FieldSetGroup>
-          <FormSelect
-            control={form.control}
-            name="municipio"
-            label="Municipio"
-            options={[
-              {
-                value: "León",
-                label: "León",
-              },
-              {
-                value: "Managua",
-                label: "Managua",
-              },
-              {
-                value: "Acoyapa",
-                label: "Acoyapa",
-              },
-            ]}
-          />
-        </FieldSetGroup>
-        <FormTextArea control={form.control} name="notas" label="Notas" />
-      </FieldSet>
+      <FormTextArea control={form.control} name="notas" label="Notas" />
     </FieldGroup>
   );
 }

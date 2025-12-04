@@ -5,8 +5,6 @@ export const cliente = pgTable("cliente", {
   telefono: text().notNull(),
   fecha: text().notNull(),
   nombre: text(),
-  apellido: text(),
-  municipio: text(),
   estado: text().notNull(), // contactado, no contactado, en espera, etc.
   notas: text(),
 });

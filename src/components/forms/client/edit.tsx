@@ -24,8 +24,6 @@ export function EditClientForm({ client }: EditClientForm) {
       telefono: client.telefono,
       fecha: client.fecha,
       nombre: client.nombre,
-      apellido: client.apellido,
-      municipio: client.municipio ?? "",
       estado: client.estado,
       notas: client.notas,
     },

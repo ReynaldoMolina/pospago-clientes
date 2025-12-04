@@ -12,7 +12,6 @@ export async function getContracts(searchParams: SearchParamsProps) {
     contrato.numero_contrato,
     contrato.telefono,
     cliente.nombre,
-    cliente.apellido,
   ]);
 
   try {
@@ -21,7 +20,7 @@ export async function getContracts(searchParams: SearchParamsProps) {
         id: contrato.id,
         numero_contrato: contrato.numero_contrato,
         fecha: contrato.fecha,
-        nombre_cliente: sql<string>`${cliente.nombre} || ' ' || ${cliente.apellido}`,
+        nombre: cliente.nombre,
         telefono: contrato.telefono,
         vence: contrato.vence,
         plan_aportado: contrato.plan_aportado,

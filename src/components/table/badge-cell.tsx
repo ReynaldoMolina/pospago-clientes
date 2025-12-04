@@ -18,6 +18,10 @@ const badgeConfig = {
     variant: "destructive" as const,
     icon: <X />,
   },
+  Bloqueado: {
+    variant: "destructive" as const,
+    icon: <X />,
+  },
   Prospecto: {
     variant: "secondary" as const,
     icon: <Check />,
@@ -32,7 +36,11 @@ export function StatusBadgeCell<TData, TValue>({
   const statusKey = formattedValue as StatusKey;
 
   if (!(statusKey in badgeConfig)) {
-    return <span>{formattedValue}</span>;
+    return (
+      <Badge variant="secondary">
+        <span>{formattedValue}</span>
+      </Badge>
+    );
   }
 
   const config = badgeConfig[statusKey];

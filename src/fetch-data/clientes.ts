@@ -11,22 +11,12 @@ export async function getClients(searchParams: SearchParamsProps) {
   const filterBySearch = buildSearchFilter(searchParams, [
     cliente.telefono,
     cliente.nombre,
-    cliente.apellido,
-    cliente.municipio,
     cliente.estado,
   ]);
 
   try {
     const query = db
-      .select({
-        id: cliente.id,
-        telefono: cliente.telefono,
-        fecha: cliente.fecha,
-        nombre_cliente: sql<string>`${cliente.nombre} || ' ' || ${cliente.apellido}`,
-        municipio: cliente.municipio,
-        estado: cliente.estado,
-        notas: cliente.notas,
-      })
+      .select()
       .from(cliente)
       .where(filterBySearch)
       .orderBy(desc(cliente.id));
@@ -66,7 +56,7 @@ export async function getClientsSelect() {
     const data = await db
       .select({
         value: sql<string>`CAST(${cliente.id} AS TEXT)`,
-        label: sql<string>`${cliente.nombre} || ' ' || ${cliente.apellido}`,
+        label: sql<string>`COALESCE(${cliente.nombre}, "Sin nombre")`,
       })
       .from(cliente)
       .orderBy(asc(cliente.nombre));

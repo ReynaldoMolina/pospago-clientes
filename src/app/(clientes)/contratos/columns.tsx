@@ -30,7 +30,7 @@ export const columns: ColumnDef<ContractTable>[] = [
     size: 80,
   },
   {
-    accessorKey: "nombre_cliente",
+    accessorKey: "nombre",
     header: "Nombre",
   },
   {
